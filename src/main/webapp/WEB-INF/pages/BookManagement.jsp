@@ -12,7 +12,7 @@
   <body ng-app="myApp" class="ng-cloak">
       <div class="generic-container" ng-controller="BookController as ctrl">   <%--UserControoler теперь просто ctrl--%>
           <div ng-show="ctrl.showBookForm" class="   panel panel-default">
-              <div class="panel-heading"><span class="lead">Регистрация книги</span></div>
+              <div class="panel-heading"><span class="lead">Check books</span></div>
               <div class="formcontainer">
                   <form ng-submit="ctrl.submit()" name="myFormBook" class="form-horizontal"><%--В зависимости от того есть обьект или нету, изменяет его или создаёт--%>
                       <input type="hidden" ng-model="ctrl.book.id" /><%--Берёт обьект для изменения --%>
@@ -50,7 +50,7 @@
           </div>
 
           <div ng-hide="ctrl.showBookForm" class="panel panel-default">
-              <div class="panel-heading"><span class="lead">Добавление автора</span></div><%--В будущем буду брать значение с обьекта что бы фома менялась--%>
+              <div class="panel-heading"><span class="lead">Adding author</span></div><%--В будущем буду брать значение с обьекта что бы фома менялась--%>
               <div class="formcontainer">
                   <form ng-submit="ctrl.addingAuthor()" name="myFormAuthor" class="form-horizontal"><%--В зависимости от того есть обьект или нету, изменяет его или создаёт--%>
                       <input type="hidden" ng-model="ctrl.author.id" /><%--Берёт обьект для изменения --%>
@@ -91,7 +91,7 @@
 
           <div class="panel panel-default">
 
-              <div class="search"><h4>Поиск:</h4><input type="search" ng-model="search" class="form-control input-sm"></div>
+              <div class="search"><h4>Search:</h4><input type="search" ng-model="search" class="form-control input-sm"></div>
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Books </span></div>
               <div class="tablecontainer">
@@ -99,9 +99,9 @@
                       <thead>
                           <tr>
                               <th>ID</th>
-                              <th>Имя</th>
-                              <th width = "40%">Описание</th>
-                              <th>Авторы</th>
+                              <th>Title</th>
+                              <th width = "40%">Description</th>
+                              <th>Authors</th>
                               <th width="20%"></th>
                           </tr>
                       </thead>
