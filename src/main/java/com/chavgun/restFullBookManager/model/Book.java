@@ -5,15 +5,14 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity   // Класс сущность.
-@Table(name = "books")   //Какая таблица
-
+@Entity   
+@Table(name = "books")  
 
 public class Book{
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  //генерируемое значение
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private int id;
 
     @Column(name = "TITLE")
