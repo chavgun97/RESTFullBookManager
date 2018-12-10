@@ -18,13 +18,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookRestController {
-    //--------------------------------------------------------------------------------------
+   
     private BookService bookService;
-    @Autowired() //Автоматическое связывание
+    @Autowired()
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
     }
-    //--------------------------------------------------------------------------------------
+    
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Book> getBookById(@PathVariable("id") Integer bookId) {
