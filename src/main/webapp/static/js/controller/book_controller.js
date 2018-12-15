@@ -57,12 +57,14 @@ App.controller('BookController', ['$scope', 'Book', 'Author', function($scope, B
               
           self.edit = function(id){/*Перебирает лис по айди и если есть такой, заменяет контроллер на новый обьект*/
               console.log('id to be edited', id);
+              self.showBookForm = true;
               for(var i = 0; i < self.books.length; i++){
                   if(self.books[i].id === id) {
-                     self.book = angular.copy(self.books[i]);
-                     break;
+                      self.book = angular.copy(self.books[i]);
+                      break;
                   }
               }
+
           };
               
           self.remove = function(id){
@@ -89,7 +91,7 @@ App.controller('BookController', ['$scope', 'Book', 'Author', function($scope, B
             var newAuthors = [];
             var index = 0;
               for(var i = 0; i < self.book.authors.length; i++){
-                  if(self.book.authors[i].id!= idAuthor){
+                  if(self.book.authors[i].id!== idAuthor){
                       newAuthors[index]=self.book.authors[i];
                       index++;
                   }
@@ -101,10 +103,15 @@ App.controller('BookController', ['$scope', 'Book', 'Author', function($scope, B
           };
           self.addAuthor = function (idBook) {
             self.showBookForm = false;
-            self.edit(idBook);
+              for(var i = 0; i < self.books.length; i++){
+                  if(self.books[i].id === idBook) {
+                      self.book = angular.copy(self.books[i]);
+                      break;
+                  }
+              }
             self.authors = Author.query();
 
-          }
+          };
           self.addingAuthor = function () {
               var newAuthors = [];
               var index = 0;
@@ -120,7 +127,7 @@ App.controller('BookController', ['$scope', 'Book', 'Author', function($scope, B
               console.log(self.book.authors);/*---------------------------*/
               self.updateBook();
               self.reset();
-          }
+          };
           self.replaceAuthor = function () {
               for(var i = 0; i<self.authors.length; i++){
                   if(self.authors[i].first_name ===self.author.first_name &&
